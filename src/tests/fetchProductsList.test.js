@@ -9,11 +9,15 @@ describe('Teste a função fetchProductsList', () => {
   });
 
   it('fetch é chamado ao executar fetchProductsList', () => {
-
+    return fetchProductsList('computador').then(data => {
+    expect(data).toMatch('fetch');
+    });
   });
 
   it('fetch é chamado com o endpoint correto ao executar fetchProductsList', () => {
-
+    return fetchProductsList('computador').then(data => {
+    expect(data).toMatch('https://api.mercadolibre.com/sites/MLB/search?q=computador');
+    });
   });
 
   // it('...', () => {
