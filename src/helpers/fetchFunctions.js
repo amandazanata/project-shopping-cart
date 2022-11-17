@@ -1,11 +1,9 @@
-const produtos = document.querySelector('.products');
-
 export const fetchProduct = () => {
   // seu código aqui
 };
 
-export const fetchProductsList = (query) => {
-  // seu código aqui
-  return fetch(`https://api.mercadolibre.com/sites/MLB/search?q=${query}`);
-  then((resposta) => resposta.json());
-};
+export const fetchProductsList = (produto) => fetch(`https://api.mercadolibre.com/sites/MLB/search?q=${produto}`).then((resposta) => resposta.json());
+
+fetchProductsList('computador')
+  .then((APIresults) => console.log(APIresults))
+  .catch((error) => console.log(error));
