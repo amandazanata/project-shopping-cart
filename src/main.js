@@ -4,4 +4,5 @@ import './style.css';
 
 document.querySelector('.cep-button').addEventListener('click', searchCep);
 
-console.log(fetchProductsList('computador'));
+fetchProduct('MLB1405519561');
+fetchProductsList('computador');
