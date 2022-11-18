@@ -1,8 +1,13 @@
 import { searchCep } from './helpers/cepFunctions';
 import { fetchProductsList } from './helpers/fetchFunctions';
+import { createProductElement } from './helpers/shopFunctions';
 import './style.css';
 
-document.querySelector('.cep-button').addEventListener('click', searchCep);
+const sectionProduct = document.querySelector('.products');
+const sectionContainer = document.querySelector('.container');
 
-fetchProduct('MLB1405519561');
-fetchProductsList('computador');
+const listaDeProdutos = await fetchProductsList('computador');
+listaDeProdutos.forEach((product) => sectionProduct
+  .appendChild(createProductElement(product)));
+
+document.querySelector('.cep-button').addEventListener('click', searchCep);

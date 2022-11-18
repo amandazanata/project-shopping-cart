@@ -3,7 +3,7 @@ import { fetchProduct } from '../helpers/fetchFunctions';
 import product from './mocks/product';
 
 // implemente seus testes aqui
-describe('Teste a função fetchProduct', () => {
+/* describe('Teste a função fetchProduct', () => {
   it('fetchProduct é uma função', () => {
     expect(typeof fetchProduct).toBe('function');
   });
@@ -29,3 +29,4 @@ describe('Teste a função fetchProduct', () => {
     expect(fetchProduct()).rejects.toThrow(new Error('ID não informado'));
   });
 });
+ */
