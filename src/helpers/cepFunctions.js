@@ -1,7 +1,15 @@
 export const getAddress = () => {
-  // seu código aqui
+/*   const APIget = await fetch(`${}`);
+  const result = await APIget.json();
+  return result.results; */
 };
 
 export const searchCep = () => {
-  // seu código aqui
+/*   const APIget = await fetch(`${}`);
+  const result = await APIget.json();
+  return result.results; */
 };
+
+/* const criaSpan = document.querySelector('.cep-input'); */
+
+
