@@ -4,7 +4,6 @@ import { createProductElement } from './helpers/shopFunctions';
 import './style.css';
 
 const sectionProduct = document.querySelector('.products');
-const sectionContainer = document.querySelector('.container');
 
 const listaDeProdutos = await fetchProductsList('computador');
 listaDeProdutos.forEach((product) => sectionProduct
