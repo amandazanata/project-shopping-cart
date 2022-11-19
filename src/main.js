@@ -4,7 +4,7 @@ import { createProductElement } from './helpers/shopFunctions';
 import './style.css';
 
 const sectionProduct = document.querySelector('.products');
-const sectionContainer = document.querySelector('.container');
+/* const sectionContainer = document.querySelector('.container'); */
 
 // <-----Cria elemento e adiciona a classe loading + texto com aviso de carregando...----->
 function aguardaCarregar() {
