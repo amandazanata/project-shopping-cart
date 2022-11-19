@@ -6,36 +6,38 @@ import './style.css';
 const sectionProduct = document.querySelector('.products');
 const sectionContainer = document.querySelector('.container');
 
-/* function aguardaCarregar() {
-  const criaElemento = document.createElement('h2');
-  criaElemento.innerHTML = 'carregando...';
-  criaElemento.className = ('loading');
-  criaElemento.style.marginLeft = '5px';
-  sectionContainer.appendChild(criaElemento);
-  return criaElemento;
+// <-----Cria elemento e adiciona a classe loading + texto com aviso de carregando...----->
+function aguardaCarregar() {
+  const criaDiv = document.createElement('div');
+  criaDiv.className = 'loading';
+
+  const criaLabel = document.createElement('label');
+  criaLabel.innerText = 'carregando...';
+
+  document.body.appendChild(criaDiv);
+  criaDiv.appendChild(criaLabel);
 }
 
-function removeCarregando() {
-  const pegaElemento = document.querySelector('.loading');
-  pegaElemento.classList.remove('loading');
-  return pegaElemento;
-} */
+// <-----Remove elemento com a classe loading----->
+function removeCarregado() {
+  const loadings = document.querySelectorAll('.loading');
+  if (loadings.length) {
+    loadings[0].remove();
+  }
+}
 
+// <-----Mostra carregando... antes do carregamento completo da página----->
+// <-----Dica do site GeeksForGeeks----->
+document.onreadystatechange = () => {
+  if (document.readyState !== 'complete') {
+    return aguardaCarregar();
+  }
+  removeCarregado();
+};
+
+// <-----Cria lista de produtos pesquisado ('computador') na página carregada----->
 const listaDeProdutos = await fetchProductsList('computador');
 listaDeProdutos.forEach((product) => sectionProduct
   .appendChild(createProductElement(product)));
 
 document.querySelector('.cep-button').addEventListener('click', searchCep);
-
-/* window.onload = function carregaPagina() {
-  if (listaDeProdutos === true) {
-    return listaDeProdutos;
-  }
-  if (listaDeProdutos === false) {
-    try {
-      aguardaCarregar();
-    } catch (e) {
-      removeCarregando();
-    }
-  }
-}; */

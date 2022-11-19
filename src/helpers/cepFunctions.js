@@ -11,5 +11,3 @@ export const searchCep = () => {
 };
 
 /* const criaSpan = document.querySelector('.cep-input'); */
-
-
