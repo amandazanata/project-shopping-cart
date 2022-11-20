@@ -37,7 +37,7 @@ const trataErro5 = () => {
 const trataAPI = async () => {
   aguardaCarregar();
   try {
-    const listaDeProdutos = await fetchProductsList();
+    const listaDeProdutos = await fetchProductsList('computador');
     listaDeProdutos.forEach((product) => { // requisito 1
       const produtcts = createProductElement(product);
       sectionProduct.appendChild(produtcts);
