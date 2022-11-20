@@ -4,6 +4,8 @@ import { createProductElement } from './helpers/shopFunctions';
 import './style.css';
 
 document.querySelector('.cep-button').addEventListener('click', searchCep);
+
+// variáveis globais
 const sectionProduct = document.querySelector('.products');
 const sectionContainer = document.querySelector('.container');
 const paragrafo = document.createElement('p');
