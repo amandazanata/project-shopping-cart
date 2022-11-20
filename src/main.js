@@ -49,9 +49,10 @@ const trataAPI = async () => {
     trataErro5();
   }
 };
+trataAPI();
 
-window.onload = () => {
+/* window.onload = () => {
   trataAPI();
 };
 
-console.log(await fetchProductsList('computador'));
+console.log(await fetchProductsList('computador')); */
