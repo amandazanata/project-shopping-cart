@@ -3,41 +3,55 @@ import { fetchProductsList } from './helpers/fetchFunctions';
 import { createProductElement } from './helpers/shopFunctions';
 import './style.css';
 
+document.querySelector('.cep-button').addEventListener('click', searchCep);
 const sectionProduct = document.querySelector('.products');
-/* const sectionContainer = document.querySelector('.container'); */
 
 // <-----Cria elemento e adiciona a classe loading + texto com aviso de carregando...----->
-function aguardaCarregar() {
-  const criaDiv = document.createElement('div');
-  criaDiv.className = 'loading';
+const aguardaCarregar = () => {
+  const paragrafo = document.createElement('p');
+  paragrafo.classList.add = 'loading';
+  paragrafo.textContent = 'carregando...';
 
-  const criaLabel = document.createElement('label');
-  criaLabel.innerText = 'carregando...';
+  sectionProduct.appendChild(paragrafo);
 
-  document.body.appendChild(criaDiv);
-  criaDiv.appendChild(criaLabel);
-}
-
-// <-----Remove elemento com a classe loading----->
-function removeCarregado() {
-  const loadings = document.querySelectorAll('.loading');
-  if (loadings.length) {
-    loadings[0].remove();
-  }
-}
-
-// <-----Mostra carregando... antes do carregamento completo da página----->
-// <-----Dica do site GeeksForGeeks----->
-document.onreadystatechange = () => {
-  if (document.readyState !== 'complete') {
-    return aguardaCarregar();
-  }
-  removeCarregado();
+  return sectionProduct;
 };
 
-// <-----Cria lista de produtos pesquisado ('computador') na página carregada----->
-const listaDeProdutos = await fetchProductsList('computador');
-listaDeProdutos.forEach((product) => sectionProduct
-  .appendChild(createProductElement(product)));
+// Requisito 4 - Remove elemento com a classe loading
+const removeParagrafo = () => {
+  const rmvLoading = document.getElementsByClassName('.loading')[0];
+  rmvLoading.remove();
 
-document.querySelector('.cep-button').addEventListener('click', searchCep);
+  return rmvLoading;
+};
+
+// Requisitos 1 e 5 - Função para gerar lista de produtos e erro de requisição de API
+const trataErro5 = () => {
+  const elemento = document.createElement('p');
+  elemento.classList.add = 'error';
+  elemento.textContent = 'Algum erro ocorreu, recarregue a página e tente novamente';
+
+  sectionProduct.appendChild(elemento);
+
+  return sectionProduct;
+};
+
+const trataAPI = async () => {
+  try {
+    aguardaCarregar();
+    const listaDeProdutos = await fetchProductsList('computador');
+    listaDeProdutos.forEach((product) => { // requisito 1
+      const produtcts = createProductElement(product);
+      sectionProduct.appendChild(produtcts);
+    });
+    removeParagrafo();
+  } catch (error) {
+    trataErro5();
+  }
+};
+
+window.onload = () => {
+  trataAPI();
+};
+
+console.log(await fetchProductsList('computador'));
