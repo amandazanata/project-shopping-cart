@@ -31,13 +31,13 @@ const removeParagrafo = () => {
 };
 
 const trataAPI = async () => {
-  aguardaCarregar();
   try {
+    aguardaCarregar();
     const listaDeProdutos = await fetchProductsList('computador');
-    removeParagrafo();
     listaDeProdutos.forEach((product) => { // requisito 3 - Gera lista de produtos 'computador'
       const products = createProductElement(product);
       sectionProduct.appendChild(products);
+      removeParagrafo();
     });
   } catch (error) {
     trataErro5();
