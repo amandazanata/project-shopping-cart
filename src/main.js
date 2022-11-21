@@ -1,7 +1,7 @@
 /* import { searchCep } from './helpers/cepFunctions'; */
-import { saveCartID } from './helpers/cartFunctions';
-import { fetchProduct, fetchProductsList } from './helpers/fetchFunctions';
-import { createCartProductElement, createProductElement } from './helpers/shopFunctions';
+/* import { saveCartID } from './helpers/cartFunctions'; */
+import { fetchProductsList } from './helpers/fetchFunctions';
+import { createProductElement } from './helpers/shopFunctions';
 import './style.css';
 
 /* document.querySelector('.cep-button').addEventListener('click', searchCep); */
@@ -49,8 +49,3 @@ const trataAPI = async () => {
   }
 };
 trataAPI();
-// _______________________________________________________________________
-
-// saveCartID(); adiciona o ID do produto ao localStorage
-// fetchProduct(); faz a requisição do produto para a API com o parametro ID já passado
-// createCartProductElement(); 
