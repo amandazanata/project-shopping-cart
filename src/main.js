@@ -41,11 +41,6 @@ const trataAPI = async () => {
     });
   } catch (error) {
     trataErro5();
-    removeParagrafo();
   }
 };
 trataAPI();
-/*
-window.onload = () => {
-  trataAPI();
-}; */
