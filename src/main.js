@@ -1,6 +1,7 @@
 /* import { searchCep } from './helpers/cepFunctions'; */
-import { fetchProductsList } from './helpers/fetchFunctions';
-import { createProductElement } from './helpers/shopFunctions';
+import { saveCartID } from './helpers/cartFunctions';
+import { fetchProduct, fetchProductsList } from './helpers/fetchFunctions';
+import { createCartProductElement, createProductElement } from './helpers/shopFunctions';
 import './style.css';
 
 /* document.querySelector('.cep-button').addEventListener('click', searchCep); */
@@ -12,7 +13,7 @@ const criaH1 = document.createElement('h1');
 
 // Requisito 4 - Cria elemento e adiciona a classe loading + texto com aviso de carregando...
 const aguardaCarregar = () => {
-  criaParagrafo.classList.add = 'loading';
+  criaParagrafo.classList.add('loading');
   criaParagrafo.innerText = 'carregando...';
 
   sectionProduct.appendChild(criaParagrafo);
@@ -20,7 +21,7 @@ const aguardaCarregar = () => {
 
 // Requisito 5 - Função para gerar lista de produtos e erro de requisição de API
 const trataErro5 = () => {
-  criaH1.classList.add = 'error';
+  criaH1.classList.add('error');
   criaH1.innerText = 'Algum erro ocorreu, recarregue a página e tente novamente';
   sectionProduct.appendChild(criaH1);
 };
@@ -32,15 +33,24 @@ const removeParagrafo = () => {
 
 const trataAPI = async () => {
   try {
+    // chama função para exibir carregando...
     aguardaCarregar();
     const listaDeProdutos = await fetchProductsList('computador');
-    listaDeProdutos.forEach((product) => { // requisito 3 - Gera lista de produtos 'computador'
+    // requisito 3 - Gera lista de produtos 'computador'
+    listaDeProdutos.forEach((product) => {
       const products = createProductElement(product);
-      sectionProduct.appendChild(products);
+      // Remove a função carregando...
       removeParagrafo();
+      sectionProduct.appendChild(products);
     });
   } catch (error) {
+    // Chama a função para exibir erro caso falhe a requisição
     trataErro5();
   }
 };
 trataAPI();
+// _______________________________________________________________________
+
+// saveCartID(); adiciona o ID do produto ao localStorage
+// fetchProduct(); faz a requisição do produto para a API com o parametro ID já passado
+// createCartProductElement(); 
