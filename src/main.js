@@ -1,6 +1,7 @@
 /* import { searchCep } from './helpers/cepFunctions'; */
-import { fetchProductsList } from './helpers/fetchFunctions';
-import { createProductElement } from './helpers/shopFunctions';
+import { getSavedCartIDs } from './helpers/cartFunctions';
+import { fetchProduct, fetchProductsList } from './helpers/fetchFunctions';
+import { createProductElement, createCartProductElement } from './helpers/shopFunctions';
 import './style.css';
 
 /* document.querySelector('.cep-button').addEventListener('click', searchCep); */
@@ -9,6 +10,7 @@ import './style.css';
 const sectionProduct = document.querySelector('.products');
 const criaParagrafo = document.createElement('p');
 const criaH1 = document.createElement('h1');
+const cartOl = document.querySelector('.cart__products');
 
 // Requisito 4 - Cria elemento e adiciona a classe loading + texto com aviso de carregando...
 const aguardaCarregar = () => {
@@ -49,3 +51,10 @@ const trataAPI = async () => {
   }
 };
 trataAPI();
+
+getSavedCartIDs().map(async (elemento) => { // requisito 9 - getSavedCartIDs(); usar map
+  const produto = await fetchProduct(elemento);
+  const retorno = await Promise // promise.all
+    .all([cartOl.appendChild(createCartProductElement(produto))]);
+  return retorno;
+});
