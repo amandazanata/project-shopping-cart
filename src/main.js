@@ -1,7 +1,6 @@
 /* import { searchCep } from './helpers/cepFunctions'; */
-import { saveCartID } from './helpers/cartFunctions';
-import { fetchProduct, fetchProductsList } from './helpers/fetchFunctions';
-import { createCartProductElement, createProductElement } from './helpers/shopFunctions';
+import { fetchProductsList } from './helpers/fetchFunctions';
+import { createProductElement } from './helpers/shopFunctions';
 import './style.css';
 
 /* document.querySelector('.cep-button').addEventListener('click', searchCep); */
@@ -50,28 +49,3 @@ const trataAPI = async () => {
   }
 };
 trataAPI();
-// _______________________________________________________________________
-
-// saveCartID(); adiciona o ID do produto ao localStorage
-// fetchProduct(); faz a requisição do produto para a API com o parametro ID já passado
-// createCartProductElement(); Cria componentes HTML e adiciona o produto no carrinho
-// feito ******** adicionar createCartProductElement() como filho de <ol class="cart__products">
-// getIdFromProduct() query selector
-
-async function getProduct() {
-  const cartOl = document.querySelector('.cart__products');
-  const btnCart = document.querySelectorAll('.product__add');
-
-  btnCart.forEach((clicks) => {
-    clicks.addEventListener('click', async () => {
-      const retornaId = clicks.parentNode.firstChild.innerText;
-      const dados = await fetchProduct(retornaId);
-      // console.log(dados);
-      const resultado = await fetch(`${dados.id}${dados.title}${dados.price}`);
-      const criaComponente = createCartProductElement(resultado);
-
-      cartOl.appendChild(criaComponente);
-    });
-    saveCartID();
-  });
-}
