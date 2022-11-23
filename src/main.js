@@ -52,7 +52,8 @@ const trataAPI = async () => {
 };
 trataAPI();
 
-getSavedCartIDs().map(async (elemento) => { // requisito 9 - getSavedCartIDs(); usar map
+// requisito 9 - com ajuda do pessoal na sala de estudos
+getSavedCartIDs().map(async (elemento) => { // getSavedCartIDs() usar map
   const produto = await fetchProduct(elemento);
   const retorno = await Promise // promise.all
     .all([cartOl.appendChild(createCartProductElement(produto))]);
