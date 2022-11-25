@@ -1,10 +1,8 @@
-/* import { searchCep } from './helpers/cepFunctions'; */
+import { searchCep } from './helpers/cepFunctions';
 import { getSavedCartIDs } from './helpers/cartFunctions';
 import { fetchProduct, fetchProductsList } from './helpers/fetchFunctions';
 import { createProductElement, createCartProductElement } from './helpers/shopFunctions';
 import './style.css';
-
-/* document.querySelector('.cep-button').addEventListener('click', searchCep); */
 
 // variáveis globais
 const sectionProduct = document.querySelector('.products');
@@ -59,3 +57,5 @@ getSavedCartIDs().map(async (elemento) => { // getSavedCartIDs() usar map
     .all([cartOl.appendChild(createCartProductElement(produto))]);
   return retorno;
 });
+
+document.querySelector('.cep-button').addEventListener('click', searchCep);

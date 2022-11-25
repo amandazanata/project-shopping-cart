@@ -123,12 +123,13 @@ export const createProductElement = ({ id, title, thumbnail, price }) => {
     'Adicionar ao carrinho!',
   );
 
+  // Requisito 8 com ajuda na monitoria summer
   cartButton.addEventListener('click', async () => {
     saveCartID(id); // saveCartID(); adiciona o ID do produto ao localStorage
     const dados = await fetchProduct(id); // fetchProduct(); faz a requisição do produto para a API com o parametro ID já passado
-    const cartOl = document.querySelector('.cart__products'); // getIdFromProduct() query selector
+    const cartOl = document.querySelector('.cart__products'); // getIdFromProduct() pega o elemento html
     const criaComponente = createCartProductElement(dados); // createCartProductElement(); Cria componentes HTML e adiciona o produto no carrinho
-    cartOl.appendChild(criaComponente); // adicionar createCartProductElement() como filho de <ol class="cart__products">
+    cartOl.appendChild(criaComponente); // subrequisito - adicionar createCartProductElement() como filho de <ol class="cart__products">
   });
 
   section.appendChild(cartButton);
