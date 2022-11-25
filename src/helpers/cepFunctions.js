@@ -27,3 +27,5 @@ export const searchCep = async () => {
   document.querySelector('.cart__address')
     .innerText = erro || `${rua} - ${bairro} - ${cidade} - ${estado}`;
 };
+
+// Resolução com ajuda na monitoria summer individual WG
