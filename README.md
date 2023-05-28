@@ -1,13 +1,11 @@
-# :construction: README customizado em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto no qual você pode customizar e reutilizar todas as vezes que for executar o trybe-publisher.
+# Repositório do projeto Carrinho de Compras!
 
-Para deixá-lo com a sua cara, basta alterar o seguinte arquivo da sua máquina: ~/.student-repo-publisher/custom/_NEW_README.md
+  <summary><strong>👨‍💻 O que foi desenvolvido</strong></summary><br />
+  
+  Um **carrinho de compras** totalmente dinâmico, consumindo dados diretamente da **API!** do Mercado Livre para buscar produtos à venda (javaScript Assíncrono).
+  O [manual da API do Mercado Livre](https://developers.mercadolivre.com.br/pt_br/itens-e-buscas) contém todas as informações acerca da API (retorno, estrutura).
+  
+  Nesse projeto também foi posto em prática o desenvolvimento orientado a testes, o famoso TDD (Test Driven Development)! Para garantir um código de qualidade, percebendo os casos de uso na aplicação e garantindo que ela esteja funcionando da maneira correta! 🚀 
+  <br/>
 
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+#### O projeto foi desenvolvido no VSCode, com metodologia ágil KanBan via Trello.
